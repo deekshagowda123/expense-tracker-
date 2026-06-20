@@ -1,0 +1,23 @@
+[
+	{
+		"id": "b1",
+		"name": "Food",
+		"amount": 500,
+		"used": 126.5,
+		"month": "2026-06"
+	},
+	{
+		"id": "b2",
+		"name": "Travel",
+		"amount": 200,
+		"used": 35,
+		"month": "2026-06"
+	},
+	{
+		"id": "b3",
+		"name": "Shopping",
+		"amount": 300,
+		"used": 120,
+		"month": "2026-06"
+	}
+]

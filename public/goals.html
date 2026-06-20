@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Finance — Goals</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body data-initial-route="goals">
+  <div class="app" id="app">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand"><div class="logo">FD</div><div class="title">Finance</div></div>
+      <nav>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="transactions.html">Transactions</a>
+        <a href="budgets.html">Budgets</a>
+        <a href="goals.html" class="active">Goals</a>
+        <a href="reports.html">Reports</a>
+        <a href="settings.html">Settings</a>
+      </nav>
+      <div class="theme-toggle"><label class="switch"><input id="themeSwitch" type="checkbox"><span></span></label><small>Dark</small></div>
+    </aside>
+    <main class="main">
+      <header class="topbar"><div class="search"><input id="globalSearch" placeholder="Search transactions, categories, notes..."></div><div class="top-actions"><button id="addTxBtn" class="btn accent">+ Add</button><div class="user"><div class="username">Hi, Dimpl</div><div class="avatar">DG</div></div></div></header>
+      <section class="content" id="content">
+        <div id="goals" class="page hidden">
+          <div class="card glass"><div class="hdr"><h4>Savings Goals</h4><button id="newGoal" class="btn">New Goal</button></div><div id="goalsList" class="list-grid"></div></div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <div id="modalRoot"></div>
+  <div id="toastRoot" class="toasts"></div>
+  <script src="script.js"></script>
+</body>
+</html>

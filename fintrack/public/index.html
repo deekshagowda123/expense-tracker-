@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FinTrack</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body data-initial-route="dashboard">
+  <div class="app">
+    <aside class="sidebar" id="sidebar">
+      <!-- SVG sprite for icons -->
+      <svg aria-hidden="true" style="display:none">
+        <symbol id="icon-home" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"></path></symbol>
+        <symbol id="icon-list" viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 8h14v-2H7v2zm0-4h14v-2H7v2zm0-6v2h14V7H7z"></path></symbol>
+        <symbol id="icon-card" viewBox="0 0 24 24"><path d="M2 6h20v12H2zM4 8v2h4V8H4zm10 6h6v2h-6v-2z"></path></symbol>
+        <symbol id="icon-target" viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 4a6 6 0 110 12 6 6 0 010-12zm0 2a4 4 0 100 8 4 4 0 000-8z"></path></symbol>
+        <symbol id="icon-chart" viewBox="0 0 24 24"><path d="M3 17h2v-7H3v7zm4 0h2V7H7v10zm4 0h2v-4h-2v4zm4 0h2v-10h-2v10z"></path></symbol>
+        <symbol id="icon-cog" viewBox="0 0 24 24"><path d="M19.43 12.98l.04-.32-.04-.32 2.11-1.65-2-3.46-2.49.77a7.03 7.03 0 00-1.73-.99l-.38-2.65h-4l-.38 2.65a7.03 7.03 0 00-1.73.99L4.9 6.63l-2 3.46L5 11.75l.04.32-.04.32-2.11 1.65 2 3.46 2.49-.77c.52.35 1.08.63 1.73.99l.38 2.65h4l.38-2.65c.65-.36 1.21-.64 1.73-.99l2.49.77 2-3.46-2.11-1.65zM12 15.5A3.5 3.5 0 1112 8.5a3.5 3.5 0 010 7z"></path></symbol>
+      </svg>
+      <div class="brand"><div class="logo">FD</div><div class="title">FinTrack</div></div>
+      <nav>
+        <button data-route="dashboard" class="active"><span class="icon"><svg aria-hidden="true"><use href="#icon-home"></use></svg></span><span class="label">Dashboard</span></button>
+        <button data-route="transactions"><span class="icon"><svg aria-hidden="true"><use href="#icon-list"></use></svg></span><span class="label">Transactions</span></button>
+        <button data-route="budgets"><span class="icon"><svg aria-hidden="true"><use href="#icon-card"></use></svg></span><span class="label">Budgets</span></button>
+        <button data-route="goals"><span class="icon"><svg aria-hidden="true"><use href="#icon-target"></use></svg></span><span class="label">Goals</span></button>
+        <button data-route="reports"><span class="icon"><svg aria-hidden="true"><use href="#icon-chart"></use></svg></span><span class="label">Reports</span></button>
+        <button data-route="settings"><span class="icon"><svg aria-hidden="true"><use href="#icon-cog"></use></svg></span><span class="label">Settings</span></button>
+      </nav>
+      <div class="theme-toggle"><label class="switch"><input id="themeSwitch" type="checkbox"><span></span></label><small>Dark</small></div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="search"><input id="globalSearch" placeholder="Search transactions, categories, notes..."></div>
+        <div class="top-actions"><button id="addTxBtn" class="btn accent">+ Add</button></div>
+      </header>
+
+      <section class="content">
+        <div id="dashboard" class="page">
+          <div class="grid">
+            <div class="card balance">
+              <h4>Total Balance</h4>
+              <div class="amount" id="totalBalance">$0.00</div>
+              <div class="sub">Monthly Income: <span id="monthlyIncome">$0</span> • Expenses: <span id="monthlyExpenses">$0</span></div>
+            </div>
+            <div class="card small"><h5>Savings Rate</h5><div id="savingsRate">0%</div></div>
+            <div class="card small"><h5>Budget Usage</h5><div id="budgetUsage">0%</div></div>
+
+            <div class="card analytics"><canvas id="lineChart"></canvas></div>
+            <div class="card"><h5>Category Breakdown</h5><canvas id="doughnutChart"></canvas></div>
+            <div class="card"><h5>Category Bar Breakdown</h5><canvas id="categoryBar"></canvas></div>
+          </div>
+
+          <div class="recent card">
+            <h4>Recent Transactions</h4>
+            <table id="recentTable" class="transactions"><thead><tr><th>Title</th><th>Category</th><th>Date</th><th>Amount</th><th></th></tr></thead><tbody></tbody></table>
+          </div>
+        </div>
+
+        <div id="transactions" class="page hidden">
+          <div class="card actions-row"><button id="newTx" class="btn">New Transaction</button></div>
+          <div class="card"><table id="txTable" class="transactions full"><thead><tr><th>Title</th><th>Category</th><th>Type</th><th>Date</th><th>Amount</th><th>Actions</th></tr></thead><tbody></tbody></table></div>
+        </div>
+
+        <div id="budgets" class="page hidden">
+          <div class="card"><div class="hdr"><h4>Budgets</h4><button id="newBudget" class="btn">New Budget</button></div><div id="budgetsList" class="list-grid"></div></div>
+        </div>
+
+        <div id="goals" class="page hidden">
+          <div class="card"><div class="hdr"><h4>Goals</h4><button id="newGoal" class="btn">New Goal</button></div><div id="goalsList" class="list-grid"></div></div>
+        </div>
+
+        <div id="reports" class="page hidden">
+          <div class="card"><h4>Reports</h4><div id="reportsCards"></div></div>
+        </div>
+
+        <div id="settings" class="page hidden">
+          <div class="card"><h4>Settings</h4><div class="setting-row"><button id="exportJson" class="btn">Export JSON</button><button id="resetData" class="btn danger">Reset Data</button></div></div>
+        </div>
+
+      </section>
+    </main>
+  </div>
+
+  <div id="modalRoot"></div>
+  <div id="toastRoot" class="toasts"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

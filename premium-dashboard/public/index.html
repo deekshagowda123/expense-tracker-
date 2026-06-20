@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Premium Finance Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand"><div class="logo">FD</div><div class="title">FinTrack</div></div>
+      <nav>
+        <a class="active">Dashboard</a>
+        <a>Transactions</a>
+        <a>Budgets</a>
+        <a>Goals</a>
+        <a>Reports</a>
+        <a>Settings</a>
+      </nav>
+      <div class="pro-tip">Pro Tip 🌟<div>Track your expenses</div></div>
+      <div class="theme-toggle"><label class="switch"><input id="themeSwitch" type="checkbox"><span></span></label><small>Dark</small></div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <input id="globalSearch" placeholder="Search transactions, categories, notes...">
+        <div class="top-actions"><button id="addBtn" class="btn accent">+ Add</button></div>
+      </header>
+
+      <section class="content">
+        <div class="grid">
+          <div class="card balance">
+            <h4>Total Balance</h4>
+            <div class="amount" id="totalBalance">$6,589.25</div>
+            <div class="sub">Monthly Income: <span id="monthlyIncome">$8,450.00</span> • Expenses: <span id="monthlyExpenses">$1,860.75</span></div>
+          </div>
+          <div class="card small"><h5>Savings Rate</h5><div id="savingsRate">28.4%</div></div>
+          <div class="card small"><h5>Budget Usage</h5><div id="budgetUsage">0%</div></div>
+
+          <div class="card analytics"><canvas id="lineChart"></canvas></div>
+          <div class="card"><h5>Expense Overview</h5><canvas id="doughnutChart"></canvas></div>
+          <div class="card"><h5>Recent Transactions</h5><ul id="recentList" class="list"></ul></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

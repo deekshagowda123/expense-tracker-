@@ -1,0 +1,92 @@
+[
+  {
+    "id": "23038dba-dfcd-4932-bacc-6ad4febe0aa9",
+    "createdAt": "2026-06-19T04:47:54.740Z",
+    "title": "deeksha",
+    "amount": 10,
+    "type": "income",
+    "category": "Health",
+    "date": "2026-06-12",
+    "notes": "health"
+  },
+  {
+    "id": "d8048c6d-1607-4fca-b63b-0d84579e320a",
+    "createdAt": "2026-06-19T04:43:21.274Z",
+    "title": "Test from agent",
+    "amount": 12.34,
+    "type": "expense",
+    "category": "Test",
+    "date": "2026-06-19",
+    "notes": "agent test"
+  },
+  {
+    "id": "t1",
+    "title": "Salary",
+    "amount": 4000,
+    "type": "income",
+    "category": "Salary",
+    "date": "2026-06-01",
+    "notes": "June payroll",
+    "createdAt": "2026-06-01T08:00:00.000Z"
+  },
+  {
+    "id": "t2",
+    "title": "Groceries",
+    "amount": 120,
+    "type": "expense",
+    "category": "Food",
+    "date": "2026-06-05",
+    "notes": "Supermarket",
+    "createdAt": "2026-06-05T12:00:00.000Z"
+  },
+  {
+    "id": "t3",
+    "title": "Freelance Design",
+    "amount": 800,
+    "type": "income",
+    "category": "Freelance",
+    "date": "2026-06-10",
+    "notes": "Client project",
+    "createdAt": "2026-06-10T09:00:00.000Z"
+  },
+  {
+    "id": "t4",
+    "title": "Coffee",
+    "amount": 6.5,
+    "type": "expense",
+    "category": "Food",
+    "date": "2026-06-11",
+    "notes": "Café",
+    "createdAt": "2026-06-11T09:30:00.000Z"
+  },
+  {
+    "id": "t5",
+    "title": "Movie Night",
+    "amount": 24,
+    "type": "expense",
+    "category": "Entertainment",
+    "date": "2026-06-12",
+    "notes": "Cinema",
+    "createdAt": "2026-06-12T20:00:00.000Z"
+  },
+  {
+    "id": "t6",
+    "title": "Electric Bill",
+    "amount": 60,
+    "type": "expense",
+    "category": "Bills",
+    "date": "2026-06-03",
+    "notes": "Utilities",
+    "createdAt": "2026-06-03T08:00:00.000Z"
+  },
+  {
+    "id": "t7",
+    "title": "Train Ticket",
+    "amount": 35,
+    "type": "expense",
+    "category": "Travel",
+    "date": "2026-06-02",
+    "notes": "Commute",
+    "createdAt": "2026-06-02T07:30:00.000Z"
+  }
+]

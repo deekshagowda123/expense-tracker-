@@ -1,0 +1,9 @@
+{
+  "name": "premium-dashboard",
+  "version": "1.0.0",
+  "description": "Minimal premium dark finance dashboard demo",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  }
+}

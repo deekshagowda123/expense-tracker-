@@ -1,0 +1,16 @@
+[
+	{
+		"id": "g1",
+		"name": "MacBook Pro",
+		"target": 2500,
+		"current": 800,
+		"createdAt": "2026-01-01T00:00:00.000Z"
+	},
+	{
+		"id": "g2",
+		"name": "Emergency Fund",
+		"target": 5000,
+		"current": 1200,
+		"createdAt": "2026-02-01T00:00:00.000Z"
+	}
+]
